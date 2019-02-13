@@ -1,0 +1,29 @@
+mymodule.content:
+  path: "/mymodule"
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MyController::content'
+    _title: "My Module"
+  requirements:
+    _permission: "access content"
+mydata.display_table_controller_display:
+  path: "/mymodule/table"
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\DisplayTableController::display'
+    _title: "display"
+  requirements:
+    _permission: "access content"
+mymodule.mydata_form:
+  path: "/mymodule/myform"
+  defaults:
+    _form: '\Drupal\mymodule\Form\CreateDataForm'
+    _title: "MydataForm"
+  requirements:
+    _access: "TRUE"
+mymodule.delete:
+  path: "/mymodule/{id}/delete"
+  defaults:
+    _form: '\Drupal\mymodule\Form\ConfirmDeleteForm'
+    _title: "Confirm Deletion"
+  requirements:
+    _permission: "administer site configuration"
+    id: ^\d+$
